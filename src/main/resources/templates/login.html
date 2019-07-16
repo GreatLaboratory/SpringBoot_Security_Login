@@ -35,13 +35,21 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h1>Login page</h1>
+
+            <!-- 파라미터값을 post전송하는 도착지가 다시 /login임-->
             <form th:action="@{/login}" method="post">
+
+                <!-- 로그인 실패했을 때 메세지-->
                 <div th:if="${param.error}">
                     <div class="alert alert-danger">Invalid username or password.</div>
                 </div>
+
+                <!-- 로그아웃했을 때 메세지-->
                 <div th:if="${param.logout}">
                     <div class="alert alert-info">You have been logged out.</div>
                 </div>
+
+                <!-- 로그인폼 -->
                 <div class="form-group">
                     <label for="username">Username</label>:
                     <input type="text" id="username" name="username" class="form-control" autofocus="autofocus" placeholder="Username" />
@@ -57,9 +65,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 새로운 판매자일 경우 회원가입 권유 -->
                 <div class="form-group">
                 <span>New seller? <a href="/" th:href="@{/registration}">Register here</a></span>
                 </div>
+
             </form>
         </div>
     </div>
